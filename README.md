@@ -1,9 +1,9 @@
-# **Práctica html en w3schools.**
+# **Prácticas de w3schools.**
 
 ## **Objetivo.**
 
-Ejercitar habilidades con HTML principalmente.  
-La idea es no usar código js y solo css cuando sea indispensable.
+Utilizar el material proporcionado por w3schools para practicar inglés y programación web.  
+La idea es realizar los ejercicios más interesantes a mi parecer para ir consolidando las herramientas aprendidas.
 
 ## **Proyecto.**
 
