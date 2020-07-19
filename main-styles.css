@@ -1,0 +1,46 @@
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+main {
+    height: 100vh;
+    background-color: crimson;
+}
+
+#encabezado {
+    text-align: center;
+    color: whitesmoke;
+    background-color: blueviolet;
+}
+
+#encabezado a {
+    color: whitesmoke;
+}
+
+#proyectos {
+    background-color: cornflowerblue;
+}
+
+.boton-proyecto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    border: 3px solid rgb(133, 130, 133);
+    border-radius: 20px;
+    box-shadow: -5px 5px 15px 3px black;
+    background-color: thistle;
+}
+
+.boton-proyecto > a {
+    font-size: 1.3rem;
+    color: black;
+}
+
+#copyright {
+    text-align: center;
+    background-color: blueviolet;
+}
