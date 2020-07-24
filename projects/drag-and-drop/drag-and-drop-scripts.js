@@ -1,3 +1,47 @@
+// Ubicar las piezas de una forma aleatoria al cargar la pagina.
+
+function obtenerValorRandom(min, max) {
+  return Math.floor(Math.random() * (max + 1 - min) + min);
+}
+
+function obtenerArregloDeRandoms(length, min, max) {
+  let randoms = [];
+  while (randoms.length < length) {
+      let candidate = obtenerValorRandom(min, max);
+      if (!randoms.includes(candidate)) {
+          randoms.push(candidate);
+      }
+  }
+  return randoms;
+}
+
+function asignarPiezas() {
+  let rutas = [
+    "fila-1-col-1.jpg", 
+    "fila-1-col-2.jpg", 
+    "fila-1-col-3.jpg", 
+    "fila-1-col-4.jpg", 
+    "fila-2-col-1.jpg", 
+    "fila-2-col-2.jpg", 
+    "fila-2-col-3.jpg", 
+    "fila-2-col-4.jpg", 
+    "fila-3-col-1.jpg", 
+    "fila-3-col-2.jpg", 
+    "fila-3-col-3.jpg", 
+    "fila-3-col-4.jpg"
+  ];
+
+  let orden = obtenerArregloDeRandoms(12, 0, 11);
+
+  let espacios = document.getElementsByClassName('pieza');
+
+  for (let i = 1; i <= espacios.length; i++) {
+    espacios[i - 1].src = rutas[orden[i - 1]];
+  }
+}
+
+asignarPiezas();
+
 // Activar particulas
 
 particlesJS(
