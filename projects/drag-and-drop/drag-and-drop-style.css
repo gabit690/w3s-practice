@@ -5,13 +5,16 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: dodgerblue;
+  background: radial-gradient(#65c6c4 20%, #408ab4 40%, #34699a 70%, #113f67 85%);
 }
 
 #encabezado {
   margin-top: 0;
   margin-bottom: 0;
   text-align: center;
+  color: #113f67;
+  font-size: 4rem;
+  text-shadow: 0px 0px 20px whitesmoke;
 }
 
 #zona-de-interaccion {
@@ -20,7 +23,6 @@ main {
   max-width: 1700px;
   height: 700px;
   display: flex;
-  background-color: brown;
 }
 
 .piezas-disponibles {
@@ -29,7 +31,7 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: chartreuse;
+  background: linear-gradient(90deg, #113f67 0.5%, #65c6c4, #113f67 99.5%);
   border: 2px solid black;
 }
 
@@ -57,6 +59,7 @@ img {
 }
 
 #particles-js {
+  display: none;
   width: 100vw;
   min-width: 1200px;
   height: 100vh;
