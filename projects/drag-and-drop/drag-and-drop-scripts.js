@@ -66,12 +66,15 @@ agregarListenerDeEventosAElementos(celdas, 'dragover', (event) => {
 agregarListenerDeEventosAElementos(celdas, 'drop', (event) => {
   event.preventDefault();
   let data = event.dataTransfer.getData('img');
-  console.log('TARGET ', event.target);
-  console.log('DATA ', data);
-  // let hijo = document.querySelector('#caja1 img');
-  // if (hijo == null) {
-  //   event.target.appendChild(document.getElementById(data));
-  // }
+  let query = "#" + event.target.id + " img";
+  let validTarget = /fila/g.test(query);
+  let hijo = document.querySelector(query);
+  if (hijo == null && validTarget) {
+    let imagen = document.getElementById(data);
+    imagen.style.width = "100%";
+    imagen.style.height = "100%";
+    event.target.appendChild(imagen);
+  }
 });
 
 const contenedorDePiezas = document.getElementsByClassName('piezas-disponibles');
@@ -83,13 +86,15 @@ agregarListenerDeEventosAElementos(contenedorDePiezas, 'dragover', (event) => {
 agregarListenerDeEventosAElementos(contenedorDePiezas, 'drop', (event) => {
   event.preventDefault();
   let data = event.dataTransfer.getData('img');
-  console.log('TRANSFER ', event.dataTransfer);
-  console.log('TARGET ', event.target);
-  console.log('DATA ', data);
-  // let hijo = document.querySelector('#caja1 img');
-  // if (hijo == null) {
-  //   event.target.appendChild(document.getElementById(data));
-  // }
+  let query = "#" + event.target.id + " img";
+  let validTarget = /contenedor/g.test(query);
+  let hijo = document.querySelectorAll(query);
+  if (hijo.length < 6 && validTarget) {
+    let imagen = document.getElementById(data);
+    imagen.style.width = "100px";
+    imagen.style.height = "100px";
+    event.target.appendChild(imagen);
+  }
 });
 
 // Activar particulas
