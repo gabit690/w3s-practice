@@ -16,19 +16,19 @@ function obtenerArregloDeRandoms(length, min, max) {
 }
 
 function asignarPiezas() {
-  let rutas = [
-    "fila-1-col-1.jpg", 
-    "fila-1-col-2.jpg", 
-    "fila-1-col-3.jpg", 
-    "fila-1-col-4.jpg", 
-    "fila-2-col-1.jpg", 
-    "fila-2-col-2.jpg", 
-    "fila-2-col-3.jpg", 
-    "fila-2-col-4.jpg", 
-    "fila-3-col-1.jpg", 
-    "fila-3-col-2.jpg", 
-    "fila-3-col-3.jpg", 
-    "fila-3-col-4.jpg"
+  let nombresDeArchivos = [
+    "fila-1-col-1", 
+    "fila-1-col-2", 
+    "fila-1-col-3", 
+    "fila-1-col-4", 
+    "fila-2-col-1", 
+    "fila-2-col-2", 
+    "fila-2-col-3", 
+    "fila-2-col-4", 
+    "fila-3-col-1", 
+    "fila-3-col-2", 
+    "fila-3-col-3", 
+    "fila-3-col-4"
   ];
 
   let orden = obtenerArregloDeRandoms(12, 0, 11);
@@ -36,11 +36,61 @@ function asignarPiezas() {
   let espacios = document.getElementsByClassName('pieza');
 
   for (let i = 1; i <= espacios.length; i++) {
-    espacios[i - 1].src = rutas[orden[i - 1]];
+    espacios[i - 1].src = nombresDeArchivos[orden[i - 1]] + ".jpg";
+    espacios[i - 1].title = nombresDeArchivos[orden[i - 1]];
   }
 }
 
 asignarPiezas();
+
+// Funcionalidad para que las piezas sean arrastrables.
+
+function agregarListenerDeEventosAElementos(elementos, evento, funcion) {
+  for (elemento of elementos) {
+    elemento.addEventListener(evento, funcion);
+  }
+}
+
+const imagenes = document.getElementsByTagName('img');
+
+agregarListenerDeEventosAElementos(imagenes, 'dragstart', (event) => {
+  event.dataTransfer.setData('img', event.target.id);
+});
+
+const celdas = document.getElementsByTagName('td');
+
+agregarListenerDeEventosAElementos(celdas, 'dragover', (event) => {
+  event.preventDefault();
+});
+
+agregarListenerDeEventosAElementos(celdas, 'drop', (event) => {
+  event.preventDefault();
+  let data = event.dataTransfer.getData('img');
+  console.log('TARGET ', event.target);
+  console.log('DATA ', data);
+  // let hijo = document.querySelector('#caja1 img');
+  // if (hijo == null) {
+  //   event.target.appendChild(document.getElementById(data));
+  // }
+});
+
+const contenedorDePiezas = document.getElementsByClassName('piezas-disponibles');
+
+agregarListenerDeEventosAElementos(contenedorDePiezas, 'dragover', (event) => {
+  event.preventDefault();
+});
+
+agregarListenerDeEventosAElementos(contenedorDePiezas, 'drop', (event) => {
+  event.preventDefault();
+  let data = event.dataTransfer.getData('img');
+  console.log('TRANSFER ', event.dataTransfer);
+  console.log('TARGET ', event.target);
+  console.log('DATA ', data);
+  // let hijo = document.querySelector('#caja1 img');
+  // if (hijo == null) {
+  //   event.target.appendChild(document.getElementById(data));
+  // }
+});
 
 // Activar particulas
 
