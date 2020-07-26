@@ -1,21 +1,32 @@
 // Ubicar las piezas de una forma aleatoria al cargar la pagina.
 
 function obtenerValorRandom(min, max) {
+
   return Math.floor(Math.random() * (max + 1 - min) + min);
+
 }
 
 function obtenerArregloDeRandoms(length, min, max) {
+
   let randoms = [];
+
   while (randoms.length < length) {
+
       let candidate = obtenerValorRandom(min, max);
+
       if (!randoms.includes(candidate)) {
+
           randoms.push(candidate);
+
       }
   }
+
   return randoms;
+
 }
 
 function asignarPiezas() {
+
   let nombresDeArchivos = [
     "fila-1-col-1", 
     "fila-1-col-2", 
@@ -36,8 +47,11 @@ function asignarPiezas() {
   let espacios = document.getElementsByClassName('pieza');
 
   for (let i = 1; i <= espacios.length; i++) {
+
     espacios[i - 1].src = nombresDeArchivos[orden[i - 1]] + ".jpg";
-    espacios[i - 1].title = nombresDeArchivos[orden[i - 1]];
+
+    espacios[i - 1].alt = nombresDeArchivos[orden[i - 1]];
+
   }
 }
 
@@ -46,55 +60,127 @@ asignarPiezas();
 // Funcionalidad para que las piezas sean arrastrables.
 
 function agregarListenerDeEventosAElementos(elementos, evento, funcion) {
-  for (elemento of elementos) {
+
+  for (let elemento of elementos) {
+
     elemento.addEventListener(evento, funcion);
+
   }
+
 }
 
 const imagenes = document.getElementsByTagName('img');
 
 agregarListenerDeEventosAElementos(imagenes, 'dragstart', (event) => {
+
   event.dataTransfer.setData('img', event.target.id);
+
 });
 
 const celdas = document.getElementsByTagName('td');
 
 agregarListenerDeEventosAElementos(celdas, 'dragover', (event) => {
+
   event.preventDefault();
+
 });
 
-agregarListenerDeEventosAElementos(celdas, 'drop', (event) => {
-  event.preventDefault();
-  let data = event.dataTransfer.getData('img');
-  let query = "#" + event.target.id + " img";
-  let validTarget = /fila/g.test(query);
-  let hijo = document.querySelector(query);
-  if (hijo == null && validTarget) {
-    let imagen = document.getElementById(data);
-    imagen.style.width = "100%";
-    imagen.style.height = "100%";
-    event.target.appendChild(imagen);
+function chequearEstadoDelTablero() {
+
+  let celdasOcupadas = document.querySelectorAll('td img').length;
+
+  let tableroLLeno = celdasOcupadas == 12;
+
+  if (tableroLLeno) {
+
+    let posicionamientoCorrecto = true;
+
+    for (let imagen of imagenes) {
+
+      posicionamientoCorrecto = imagen.alt == imagen.parentElement.id;
+
+      if (!posicionamientoCorrecto) {
+
+        break;
+
+      }
+
+    }
+    
+    if (posicionamientoCorrecto) {
+
+      document.getElementById('particles-js').style.zIndex = '0';
+
+      let audio = document.getElementById('exito');
+
+      audio.play();
+      
+    }
+
   }
+
+}
+
+agregarListenerDeEventosAElementos(celdas, 'drop', (event) => {
+
+  event.preventDefault();
+
+  let data = event.dataTransfer.getData('img');
+
+  let query = "#" + event.target.id + " img";
+
+  let validTarget = /fila/g.test(query);
+
+  let hijo = document.querySelector(query);
+
+  if (hijo == null && validTarget) {
+
+    let imagen = document.getElementById(data);
+
+    imagen.style.width = "100%";
+
+    imagen.style.height = "100%";
+
+    event.target.appendChild(imagen);
+
+    chequearEstadoDelTablero();
+
+  }
+
 });
 
 const contenedorDePiezas = document.getElementsByClassName('piezas-disponibles');
 
 agregarListenerDeEventosAElementos(contenedorDePiezas, 'dragover', (event) => {
+
   event.preventDefault();
+
 });
 
 agregarListenerDeEventosAElementos(contenedorDePiezas, 'drop', (event) => {
+
   event.preventDefault();
+
   let data = event.dataTransfer.getData('img');
+
   let query = "#" + event.target.id + " img";
+
   let validTarget = /contenedor/g.test(query);
+
   let hijo = document.querySelectorAll(query);
+
   if (hijo.length < 6 && validTarget) {
+
     let imagen = document.getElementById(data);
+
     imagen.style.width = "100px";
+
     imagen.style.height = "100px";
+
     event.target.appendChild(imagen);
+
   }
+
 });
 
 // Activar particulas
