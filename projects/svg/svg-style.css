@@ -1,3 +1,72 @@
 * {
   box-sizing: border-box;
 }
+
+main {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #cedebd;
+}
+
+#encabezado {
+  margin-top: 0;
+  text-align: center;
+  color: #411f1f;
+}
+
+#formas {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  outline: 5px dotted black;
+}
+
+.contenedor {
+  width: 200px;
+  background-color: brown;
+}
+
+.nombre-figura {
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(#43645e, #5f8f87, #43645e);
+  color: #f3f3f3;
+}
+
+.figura {
+  width: 100%;
+  height: 150px;
+  display: block;
+  margin: 0;
+  background-color: #f3f3f3;
+  border: 5px double #411f1f;
+}
+
+circle {
+  stroke: darkblue;
+  stroke-width: 4;
+  fill: burlywood;
+}
+
+rect {
+  width: 150px;
+  height: 80px;
+  stroke: crimson;
+  stroke-width: 4;
+  fill: yellow;
+  opacity: 0.5;
+}
+
+ellipse {
+  stroke: red;
+  stroke-width: 4;
+  fill: royalblue;
+}
+
+line {
+  stroke: black;
+  stroke-width: 3;
+}
