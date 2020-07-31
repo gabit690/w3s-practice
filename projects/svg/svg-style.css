@@ -31,6 +31,8 @@ main {
 
 .nombre-figura {
   margin: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: center;
   background: linear-gradient(#43645e, #5f8f87, #43645e);
   color: #f3f3f3;
@@ -69,4 +71,27 @@ ellipse {
 line {
   stroke: black;
   stroke-width: 3;
+}
+
+polygon {
+  stroke: purple;
+  stroke-width: 3;
+  fill: plum;
+}
+
+polyline {
+  stroke: rgb(83, 163, 4);
+  stroke-width: 4;
+  fill: none;
+}
+
+path {
+  stroke: chocolate;
+  stroke-width: 4;
+  fill: none;
+}
+
+tspan {
+  fill: crimson;
+  font-size: 3rem;
 }
