@@ -63,6 +63,56 @@
           </text>
         </svg>
       </figure>
+      <figure class="contenedor">
+        <h2 class="nombre-figura">Blur</h2>
+        <svg class="figura">
+          <defs>
+            <filter id="blur-gaussiano" x="0" y="0">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+            </filter>
+          </defs>
+          <text id="emoji-con-blur" x="30" y="105">&#128569;</text>
+        </svg>
+      </figure>
+      <figure class="contenedor">
+        <h2 class="nombre-figura">Drop Shadow</h2>
+        <svg class="figura">
+          <defs>
+            <filter id="drop-shadow" x="0" y="0">
+              <feOffset result="offOut" in="SourceAlpha" dx="10" dy="6" />
+              <feGaussianBlur result="blurOut" in="offOut" stdDeviation="5" />
+              <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+          </defs>
+          <text id="emoji-con-sombra" x="27" y="102">&#128569;</text>
+        </svg>
+      </figure>
+      <figure class="contenedor">
+        <h2 class="nombre-figura">Linear Gradient</h2>
+        <svg class="figura">
+          <defs>
+            <linearGradient id="gradiente-lineal" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="00%" style="stop-color:rgb(255,0,0);stop-opacity:1"/>
+              <stop offset="50%" style="stop-color:rgb(0,255,0);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <polygon id="rombo" points="25,70 95,20 165,70 95,120" />
+        </svg>
+      </figure>
+      <figure class="contenedor">
+        <h2 class="nombre-figura">Radial Gradient</h2>
+        <svg class="figura">
+          <defs>
+            <radialGradient id="gradiente-radial" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="00%" style="stop-color:rgb(255,0,0);stop-opacity:1"/>
+              <stop offset="50%" style="stop-color:rgb(0,255,0);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+            </radialGradient>
+          </defs>
+          <ellipse id="elipse-radial" cx="95" cy="70" rx="70" ry="55" />
+        </svg>
+      </figure>
     </section>
   </main>
   <script src="svg-scripts.js"></script>

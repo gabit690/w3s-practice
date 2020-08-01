@@ -87,11 +87,33 @@ polyline {
 
 path {
   stroke: chocolate;
-  stroke-width: 4;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 10;
   fill: none;
 }
 
 tspan {
   fill: crimson;
   font-size: 3rem;
+}
+
+#emoji-con-blur {
+  font-size: 6rem;
+  filter: url(#blur-gaussiano);
+}
+
+#emoji-con-sombra {
+  font-size: 6rem;
+  filter: url(#drop-shadow);
+}
+
+#rombo {
+  stroke: none;
+  fill: url(#gradiente-lineal);
+}
+
+#elipse-radial {
+  stroke: none;
+  fill: url(#gradiente-radial);
 }
