@@ -16,6 +16,7 @@ main {
 
 #formas {
   width: 80vw;
+  max-width: 1200px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -116,4 +117,18 @@ tspan {
 #elipse-radial {
   stroke: none;
   fill: url(#gradiente-radial);
+}
+
+@media (min-width: 700px) {
+  #formas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+}
+
+@media (min-width: 1000px) {
+  #formas {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
