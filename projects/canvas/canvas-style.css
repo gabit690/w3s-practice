@@ -2,12 +2,19 @@
   box-sizing: border-box;
 }
 
-#encabezado {
-  text-align: center;
+body {
+  background-color: #f2e9d0;
 }
 
-#lienzo1 {
-  outline: 5px solid black;
+#encabezado {
+  text-align: center;
+  font-size: 3rem;
+}
+
+#lienzo {
+  outline: 10px double #bb5a5a;
   margin: auto;
+  margin-top: 100px;
   display: block;
+  background-color: #e79e85;
 }
