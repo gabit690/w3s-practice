@@ -23,4 +23,4 @@ ___
 
 **Finalización del proyecto:** 05/07/2020.
 
-[web]: https://gabit690.github.io/w3s-practice
+[web]: https://html-w3schools-projects.web.app
