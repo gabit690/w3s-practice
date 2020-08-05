@@ -21,6 +21,6 @@ ___
 
 **Inicio del proyecto:** 17/07/2020.
 
-**Finalización del proyecto:** ??/07/2020.
+**Finalización del proyecto:** 05/07/2020.
 
-[web]: #
+[web]: https://gabit690.github.io/w3s-practice
